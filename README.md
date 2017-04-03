@@ -36,5 +36,20 @@ TIFFファイルから画像データを読み込みます。
 
 16bitグレースケールと32bit IEEE floatでは、出力される画像データは独自拡張されたものとなっており、2Dピクチャに接続しても画像表示されません。
 
+1bit白黒、8bitグレースケール、8bitカラーマップ、24bitRGBであれば、出力される画像データを「平坦化ピックスマップ描画 (Draw Flattened Pixmap.vi)」に接続して、2Dピクチャに描画することが可能です。
+
+1bit白黒および8bitグレースケールの画像データには（本来は不要である）色配列が格納されています。これは、2Dピクチャに描画する際に「PhotometricInterpretation」が持っている情報を正しく伝達するためです。
+
+TIFFファイルに格納されているタグ情報は、画像データを構成するために必要なもの以外は破棄されます。ただし、「ImageDescription」「XResolution」「YResolution」「ResolutionUnit」は任意端子で出力されます。
+
+### Unflatten Pixmap2.vi
+画像データをピックスマップ（2D配列）に変換します。
+
+### Flatten Pixmap2.vi
+ピックスマップを画像データに変換します。
+
+1bit白黒のピックスマップを変換する場合、色配列に何も与えなければ「BlackIsZero（PhotometricInterpretation = 1）」と解釈されます。「WhiteIsZero（PhotometricInterpretation = 0）」としたい場合には、［0x00FFFFFF, 0x00000000］である色配列を与えてください。
+
+8bitピックスマップを変換する場合、色配列に何も与えないと。
 ## ライセンス
 このLLBおよびVIはMITライセンスに則り公開されています（LICENSE.txt参照）。
