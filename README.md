@@ -52,7 +52,7 @@ TIFFファイルに格納されているタグ情報は、画像データを構�
 
 8bitピックスマップを変換する場合、色配列に何も与えなければ「BlackIsZero（PhotometricInterpretation = 1）」であるグレースケールと解釈されます。「WhiteIsZero（PhotometricInterpretation = 0）」のグレースケールとしたい場合には、［0x00FFFFFF, 0x00FEFEFE, ... 0x00010101, 0x00000000］である色配列を与えてください。カラーマップを与えれば8bitカラーマップ画像となります。
 
-### Write ITFF File.vi
+### Write TIFF File.vi
 画像データをTIFFファイルに書き込みます。
 
 書き込まれるデータは無圧縮かつ１ストリップ構造となります。
