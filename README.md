@@ -50,6 +50,7 @@ TIFFファイルに格納されているタグ情報は、画像データを構�
 
 1bit白黒のピックスマップを変換する場合、色配列に何も与えなければ「BlackIsZero（PhotometricInterpretation = 1）」と解釈されます。「WhiteIsZero（PhotometricInterpretation = 0）」としたい場合には、［0x00FFFFFF, 0x00000000］である色配列を与えてください。
 
-8bitピックスマップを変換する場合、色配列に何も与えないと。
+8bitピックスマップを変換する場合、色配列に何も与えなければ「BlackIsZero（PhotometricInterpretation = 1）」であるグレースケールと解釈されます。「WhiteIsZero（PhotometricInterpretation = 0）」のグレースケールとしたい場合には、［0x00FFFFFF, 0x00FEFEFE, ... 0x00010101, 0x00000000］である色配列を与えてください。カラーマップを与えれば8bitカラーマップ画像となります。
+
 ## ライセンス
 このLLBおよびVIはMITライセンスに則り公開されています（LICENSE.txt参照）。
